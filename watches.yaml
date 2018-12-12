@@ -1,0 +1,5 @@
+---
+- version: v1alpha1
+  group: arpscan.kubedge.cloud
+  kind: Kubedge
+  role: /opt/ansible/roles/Kubedge
