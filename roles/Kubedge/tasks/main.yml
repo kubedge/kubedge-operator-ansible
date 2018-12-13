@@ -1,0 +1,27 @@
+---
+- name: start kubedge
+  k8s:
+    definition:
+      kind: Deployment
+      apiVersion: apps/v1
+      metadata:
+        name: '{{ meta.name }}-kubedge'
+        namespace: '{{ meta.namespace }}'
+      spec:
+        replicas: "{{size}}"
+        selector:
+          matchLabels:
+            app: kubedge
+        template:
+          metadata:
+            labels:
+              app: kubedge
+          spec:
+            containers:
+            - name: arpscan
+              command:
+              - /bin/arpscan
+              - eth0 
+              image: "hack4easy/arpscan-amd64:latest"
+              ports:
+                - containerPort: 11211
