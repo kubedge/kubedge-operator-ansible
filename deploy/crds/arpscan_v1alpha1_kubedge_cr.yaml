@@ -4,4 +4,4 @@ metadata:
   name: example-kubedge
 spec:
   # Add fields here
-  size: 1
+  size: 2
